@@ -1,18 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//   img_url: "",
-//   name: "Tossed - St Martin's Lane",
-//   deliverIn: "10 - 20 min",
-//   tags: ["Chicken", "Salads", "Healthy"],
-//   distance: 0.2,
-//   closesAt: "21:00",
-//   minimumPrice: 7.0,
-//   deliveryCharge: 0.99,
-//   rating: 4.7,
-//   reviews: 500,
-// };
-
 const initialState = {
   name: "Anderson LLC",
   openTime: "09:00 AM",

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { InView } from "react-intersection-observer";
+import Cart from "../components/cart.component";
 
 import Item from "../components/item.component";
 import ItemNav from "../components/itemNav.component";
@@ -10,6 +11,7 @@ import ItemNav from "../components/itemNav.component";
 import {
   updateCurrentRestaurantAction,
   updateCurrentItemAction,
+  updateCartItemsAction,
 } from "../redux/actions/dataActions";
 
 import {
@@ -22,7 +24,7 @@ import {
   MinusIcon,
   PlusIcon,
   StarIcon,
-} from "../utils.js/images";
+} from "../utils/images";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -40,6 +42,15 @@ const Home = () => {
   const [activeTitle, setActiveTitle] = useState(currentItems.categories[0]);
 
   const [loading, setLoading] = useState(true);
+
+  const handleAddToCart = (item) => {
+    dispatch(
+      updateCartItemsAction({
+        ...currentItems,
+        cart: [...currentItems.cart, item],
+      })
+    );
+  };
 
   useEffect(() => {
     dispatch(updateCurrentRestaurantAction());
@@ -107,7 +118,7 @@ const Home = () => {
 
           <ItemNav active={activeTitle} setActive={setActiveTitle} />
           <div className="container-fluid items-container pb-5 min-vh-100">
-            <small>Adults need around 2000 kcal a day</small>
+            <small >Adults need around 2000 kcal a day</small>
             <div className="row items-wrapper">
               <div className="col-lg-8 col-auto">
                 {groupedItems.map(
@@ -140,24 +151,18 @@ const Home = () => {
                 )}
               </div>
               <div className="col-lg-4 d-lg-block d-none">
-                <div className="cart-wrapper">
-                  <CartIcon />
-                  <p>Your basket is empty</p>
-                  <button className="btn btn-primary" disabled>
-                    Go to checkout
-                  </button>
-                </div>
+              <Cart />
               </div>
             </div>
           </div>
-          <ItemDataModal data={currentlyViewing} />
+          <ItemDataModal data={currentlyViewing} handleAddToCart={handleAddToCart}/>
         </div>
       </div>
     )
   );
 };
 
-const ItemDataModal = ({ data }) => {
+const ItemDataModal = ({ data, handleAddToCart }) => {
   const [qty, setQty] = useState(1);
 
   return (
@@ -218,7 +223,11 @@ const ItemDataModal = ({ data }) => {
                   <PlusIcon />
                 </button>
               </div>
-              <button className="btn btn-primary">
+              <button
+                className="btn btn-primary"
+                onClick={() => handleAddToCart({ ...data, qty: qty })}
+                data-bs-dismiss="modal"
+              >
                 Add for £{qty * data?.price}
               </button>
             </div>

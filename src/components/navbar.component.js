@@ -1,4 +1,4 @@
-import { AccountIcon, SearchIcon } from "../utils.js/images";
+import { AccountIcon, SearchIcon } from "../utils/images";
 
 const Navbar = () => {
   return (

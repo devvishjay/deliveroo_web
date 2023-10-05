@@ -130,8 +130,6 @@ a {
 
   .header-img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
   }
 
   .info-list {
@@ -445,12 +443,14 @@ a {
 .cart-wrapper {
   position: sticky;
   top: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 30px;
   background-color: $light;
   box-shadow: 0px 0px 6px rgba($dark, 0.1);
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+  }
 
   svg {
     width: 60px;
@@ -460,26 +460,129 @@ a {
 
   p {
     color: rgba($dark, 0.5);
+
+    &.price {
+      color: $dark;
+      margin: 6px 0;
+    }
+  }
+
+  a {
+    color: $primary;
+  }
+
+  hr {
+    border: 1px solid rgba($dark, 0.05) !important;
+    opacity: 1;
+    width: 100%;
+    margin: 10px 0;
   }
 
   .btn {
     width: 100%;
     padding: 14px !important;
-    color: $dark !important;
+    color: $light !important;
+    font-weight: 700;
+
+    &:disabled {
+      color: $dark !important;
+    }
+  }
+
+  .cart-ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0;
+    }
+  }
+
+  .qty-btn-wrapper {
+    .qty {
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    button {
+      border: none;
+      background: none;
+      outline: none;
+
+      svg {
+        fill: $primary;
+        opacity: 1;
+        width: 20px;
+      }
+    }
+
+    p {
+      color: $dark;
+      margin: 0;
+    }
+  }
+}
+
+footer {
+  background-color: $dark;
+  color: $light;
+
+  h3 {
+    font-size: 18px;
+    line-height: 24px;
     font-weight: 700;
   }
 
+  .col-wrapper {
+    background-color: #434848;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 25px;
+    border-radius: 6px;
 
-}
+    @media screen and (max-width: $mobile-res) {
+      width: 95%;
+      margin: auto;
+    }
 
-.custom-txt {
-  color: rgba($dark, 0.5) !important;
-  font-size: small;
-}
+    a {
+      font-size: 14px;
 
-.form-check-input:checked {
-  background-color: $primary !important;
-  border-color: $primary !important ;
+      &:hover {
+        color: $primary;
+      }
+
+      img {
+        width: 135px;
+        height: 40px;
+      }
+    }
+  }
+
+  .col-social {
+    a {
+      svg {
+        fill: $light;
+      }
+
+      &.fb-icon svg:hover {
+        fill: #1877f2;
+      }
+
+      &.twitter-icon svg:hover {
+        fill: #55acee;
+      }
+
+      &.insta-icon svg:hover {
+        fill: #f00075;
+      }
+    }
+  }
+
+  small {
+    opacity: 0.3;
+  }
 }
 
 @media screen and (max-width: $mobile-res) {

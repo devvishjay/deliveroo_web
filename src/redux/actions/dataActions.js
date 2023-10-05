@@ -17,3 +17,11 @@ export const updateCurrentItemAction = () => {
     dispatch(updateItems(data.data));
   };
 };
+
+
+export const updateCartItemsAction = (data) => {
+  return async(dispatch) => {
+
+    dispatch(updateItems(data));
+  };
+};

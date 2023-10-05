@@ -10,6 +10,7 @@ import Home from "./pages/home.page";
 import store from "./redux";
 
 import reportWebVitals from "./reportWebVitals";
+import Footer from "./components/footer.component";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
     <Provider store={store}>
       <Navbar />
       <Home />
+      <Footer />
     </Provider>
   </React.StrictMode>
 );
