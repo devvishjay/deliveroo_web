@@ -1,0 +1,19 @@
+import axiosInstance from "../../utils/axios";
+import { update as updateRestaurant } from "../reducers/dataReducer";
+import { update as updateItems } from "../reducers/itemReducer";
+
+export const updateCurrentRestaurantAction = () => {
+  return async (dispatch) => {
+    const {data} = await axiosInstance.get("/api/restaurants/6");
+    dispatch(updateRestaurant(data.data));
+    // dispatch(updateRestaurant());
+  };
+};
+
+export const updateCurrentItemAction = () => {
+  return async(dispatch) => {
+    const {data} = await axiosInstance.get("/api/menus/readDishes/1");
+
+    dispatch(updateItems(data.data));
+  };
+};
