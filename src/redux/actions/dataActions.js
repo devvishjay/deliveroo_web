@@ -1,6 +1,7 @@
 import axiosInstance from "../../utils/axios";
 import { update as updateRestaurant } from "../reducers/dataReducer";
 import { update as updateItems } from "../reducers/itemReducer";
+import { update as userDetails } from "../reducers/userReducer";
 
 export const updateCurrentRestaurantAction = () => {
   return async (dispatch) => {
@@ -23,5 +24,12 @@ export const updateCartItemsAction = (data) => {
   return async(dispatch) => {
 
     dispatch(updateItems(data));
+  };
+};
+
+export const userDetailsAction = (data) => {
+  return async(dispatch) => {
+
+    dispatch(userDetails(data));
   };
 };

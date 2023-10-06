@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { AccountIcon, SearchIcon, SinupOrLoginIcon } from "../utils/images";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   let navigate = useNavigate();
+  const userDetails = useSelector((state) => state.userDetails);
+
   const handleLogin = () => {
     navigate("/login");
   };
@@ -31,7 +34,7 @@ const Navbar = () => {
         <div className="ms-auto">
         <button className="btn btn-secondary me-3" onClick={handleLogin}>
           <SinupOrLoginIcon />
-          <span>Sign up or log in</span>
+          <span>{userDetails?.name ? userDetails?.name : 'Sign up or log in'}</span>
         </button>
         <button className="btn btn-secondary">
           <AccountIcon />
