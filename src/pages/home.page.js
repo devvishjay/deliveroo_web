@@ -206,7 +206,7 @@ const ItemDataModal = ({ data, handleAddToCart }) => {
                     <p class="text-muted custom-txt">{item.contains}</p>
                   </div>
                   <div class="col-md-2 text-right">
-                    <p>${item.price}</p>
+                    <p>+${item.price}</p>
                   </div>
                 </div>
               </div>

@@ -4,6 +4,8 @@ $primary: #00b8a9;
 $secondary: #00ccbc;
 $dark: #2e3333;
 $light: #ffffff;
+$ash : #dfdddd;
+$textAsh: #585C5C;
 
 $font: "IBM Plex Sans", sans-serif;
 
@@ -588,5 +590,61 @@ footer {
 @media screen and (max-width: $mobile-res) {
   .container-fluid {
     padding: 15px 20px;
+  }
+}
+
+.login-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+  height: 50vh;
+
+  .login-container{
+    display: flex;
+    flex-direction: column;
+
+     width: 25%;
+  }
+
+  h4{
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+    color: $dark;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  .orSection{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+
+  .line{
+    width: 100%;
+    height: 1px; 
+    background-color: $ash;
+    margin: 12px 12px;
+  }
+  .buttonHolder{
+    width: 100%;
+    font-weight: 700;
+  }
+
+  .icon{
+    margin-right: 100px;
+  }
+
+  .agreement{
+    color: $textAsh;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  h6{
+    margin-bottom: 0 !important;
   }
 }

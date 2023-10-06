@@ -259,6 +259,12 @@ const AccountIcon = () => {
   );
 };
 
+const SinupOrLoginIcon = () => {
+  return (
+<svg height="24" width="24" viewBox="0 0 24 24" role="presentation" focusable="false" class="ccl-2608038983f5b413 ccl-ab78be2f3c0b8a03 ccl-728d4bf1d552a771"><path d="M3 10L5 8.44444V5H9.42857L12 3L21 10V21H3V10ZM14 19H19V10.9782L12 5.53372L5 10.9782V19H10V14H14V19Z"></path></svg>
+  )
+};
+
 const ArrowIcon = () => {
   return (
     <svg width="24" height="24" className="arrow" viewBox="0 0 24 24">
@@ -352,6 +358,10 @@ const InstaIcon = () => {
     </svg>
   );
 };
+const EmailIcon = () => {
+  return (
+<svg height="25" width="25" color="white" viewBox="0 0 24 24" role="presentation" focusable="false" class="ccl-2608038983f5b413 ccl-ab78be2f3c0b8a03"><path d="M2 20H22V4H2V20ZM20 6V18H4V6L12 13L20 6ZM5.41425 6H18.5858L12 11.5857L5.41425 6Z"></path></svg>  )
+}
 
 export {
   SearchIcon,
@@ -359,6 +369,7 @@ export {
   InfoIcon,
   StarIcon,
   AccountIcon,
+  SinupOrLoginIcon,
   ArrowIcon,
   GroupIcon,
   MinusIcon,
@@ -368,4 +379,5 @@ export {
   FbIcon,
   TwitterIcon,
   InstaIcon,
+  EmailIcon
 };

@@ -1,6 +1,11 @@
-import { AccountIcon, SearchIcon } from "../utils/images";
+import { AccountIcon, SearchIcon, SinupOrLoginIcon } from "../utils/images";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/login");
+  };
   return (
     <nav className="navbar navbar-expand-md position-sticky top-0">
       <div className="container-fluid hstack gap-lg-5 gap-1">
@@ -23,10 +28,16 @@ const Navbar = () => {
         <button className="btn btn-secondary d-block d-lg-none">
           <SearchIcon />
         </button>
-        <button className="btn btn-secondary ms-auto">
+        <div className="ms-auto">
+        <button className="btn btn-secondary me-3" onClick={handleLogin}>
+          <SinupOrLoginIcon />
+          <span>Sign up or log in</span>
+        </button>
+        <button className="btn btn-secondary">
           <AccountIcon />
           <span>Account</span>
         </button>
+        </div>
       </div>
     </nav>
   );
