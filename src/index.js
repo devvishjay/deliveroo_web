@@ -1,20 +1,21 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import Navbar from "./components/navbar.component";
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import Footer from "./components/footer.component";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import store from "./redux";
 
 import "./styles/index.scss";
 
-import Home from "./pages/home.page";
+const Home = lazy(() => import('./pages/home.page'));
+const Login = lazy(() => import('./pages/login.page'));
 
-import store from "./redux";
 
-import reportWebVitals from "./reportWebVitals";
-import Footer from "./components/footer.component";
-import Login from "./pages/login.page";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,10 +25,12 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        </Suspense>
         <Footer />
       </Provider>
     </BrowserRouter>
