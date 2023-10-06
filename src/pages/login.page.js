@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { GoogleLogin, useGoogleLogin  } from '@react-oauth/google';
+import { useGoogleLogin  } from '@react-oauth/google';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { EmailIcon, GoogleIcon } from "../utils/images";
@@ -11,8 +11,8 @@ import { userDetailsAction } from "../redux/actions/dataActions";
 const Login = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
+
     const [ user, setUser ] = useState([]);
-    const [ profile, setProfile ] = useState([]);
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => setUser(codeResponse),
@@ -32,16 +32,13 @@ const Login = () => {
                     .then((res) => {
                         console.log(res.data);
                         axiosInstance.post("/api/customers/googleLogin", {data:res.data})
-                        setProfile(res.data);
                         dispatch(userDetailsAction(res.data));
                         navigate("/");
 
                     })
                     .catch((err) => console.log(err));
             }
-        },
-        [ user ]
-    );
+        },[user]);
 
 
 

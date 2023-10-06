@@ -57,6 +57,7 @@ const Home = () => {
     dispatch(updateCurrentItemAction());
     setLoading(false);
   }, []);
+  
   return (
     !loading && (
       <div>
