@@ -71,6 +71,24 @@ a {
     }
   }
 
+  &.btn-google {
+    background: $light !important;
+    border: 1px solid rgba($textAsh, 0.5) !important;
+    font-weight: 600 !important;
+    svg {
+      fill: $primary;
+      width: 30px;
+    }
+
+    span {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      border: 1px solid rgba($dark, 0.2) !important;
+    }
+  }
+
   &:disabled {
     background-color: rgba($dark, 0.3) !important;
   }
@@ -604,7 +622,7 @@ footer {
   .login-container{
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 20%;
     @media screen and (max-width: $mobile-res) {
       width: 80%;
     }

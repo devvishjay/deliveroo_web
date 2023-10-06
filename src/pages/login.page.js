@@ -3,7 +3,7 @@ import { GoogleLogin, useGoogleLogin  } from '@react-oauth/google';
 
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { EmailIcon } from "../utils/images";
+import { EmailIcon, GoogleIcon } from "../utils/images";
 import axiosInstance from "../utils/axios";
 
 const Login = () => {
@@ -46,7 +46,7 @@ const Login = () => {
                 <div className="row ">
                     <h4>Sign up or log in</h4>
                 </div>
-                <button className="btn btn-primary buttonHolder" onClick={() => login()}>Sign in with Google </button>
+                <button className="btn btn-google" onClick={() => login()}> <GoogleIcon /> Continue with Google </button>
 
                 <div className="orSection">
                     <span className="line" />
