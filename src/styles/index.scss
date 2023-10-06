@@ -604,8 +604,10 @@ footer {
   .login-container{
     display: flex;
     flex-direction: column;
-
-     width: 25%;
+    width: 25%;
+    @media screen and (max-width: $mobile-res) {
+      width: 80%;
+    }
   }
 
   h4{
@@ -647,4 +649,6 @@ footer {
   h6{
     margin-bottom: 0 !important;
   }
+
+
 }

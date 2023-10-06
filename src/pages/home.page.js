@@ -128,7 +128,7 @@ const Home = () => {
                         <InView
                           as="h4"
                           id={`title-${group.category.id}`}
-                          threshold={0.8}
+                          threshold={0.3}
                           onChange={(inView, entry) => {
                             if (inView) {
                               setActiveTitle(group.category);
@@ -206,7 +206,7 @@ const ItemDataModal = ({ data, handleAddToCart }) => {
                     <p class="text-muted custom-txt">{item.contains}</p>
                   </div>
                   <div class="col-md-2 text-right">
-                    <p>+${item.price}</p>
+                    <p>+£{item.price}</p>
                   </div>
                 </div>
               </div>
